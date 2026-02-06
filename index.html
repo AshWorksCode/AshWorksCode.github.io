@@ -35,10 +35,18 @@
     }
 
 header img {
-  max-width: 600px; /* your larger logo */
+  max-width: 100%; /* makes it shrink to container width */
   height: auto;
-  margin-bottom: 0.3rem; /* reduce spacing */
+  margin-bottom: 0.3rem;
 }
+
+/* Optional: give a smaller max-width for very small screens */
+@media (max-width: 480px) {
+  header img {
+    max-width: 250px; /* logo won’t get too big on phones */
+  }
+}
+
 
 .tagline {
   margin-top: 0; /* remove extra spacing if any */
