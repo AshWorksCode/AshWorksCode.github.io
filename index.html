@@ -46,11 +46,19 @@ header img {
   font-size: 1.1rem;
 }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-    }
+ .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Center cards on smaller screens */
+@media (max-width: 768px) {
+  .grid {
+    justify-items: center;
+  }
+}
+
 
     .card {
       background: rgba(17, 24, 39, 0.85);
