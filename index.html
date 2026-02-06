@@ -11,8 +11,7 @@
       --card: #111827;
       --text: #e5e7eb;
       --muted: #94a3b8;
-      --accent: #9575BD;
-      /* changed from blue to purple */
+      --accent: #9575BD; /* purple accent */
     }
 
     * {
@@ -40,24 +39,28 @@
 
     header img {
       max-width: 100%;
-      /* makes it shrink to container width */
       height: auto;
       margin-bottom: 0.3rem;
     }
 
-    /* Optional: give a smaller max-width for very small screens */
     @media (max-width: 480px) {
       header img {
         max-width: 250px;
-        /* logo won’t get too big on phones */
       }
     }
 
     .tagline {
       margin-top: 0;
-      /* remove extra spacing if any */
-      color: var(--muted);
-      font-size: 1.1rem;
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 480px) {
+      .tagline {
+        font-size: 1.2rem;
+      }
     }
 
     .grid {
@@ -66,7 +69,6 @@
       gap: 1.5rem;
     }
 
-    /* Center cards on smaller screens */
     @media (max-width: 768px) {
       .grid {
         justify-items: center;
@@ -85,7 +87,6 @@
     .card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
-      /* purple shadow on hover */
     }
 
     .card h3 {
@@ -118,31 +119,38 @@
 
 <body>
   <div class="container">
-    <header> <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo"> <!-- Replace with your actual logo path -->
+    <header>
+      <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo">
       <p class="tagline">Your ideas – brilliantly executed.</p>
     </header>
+
     <section class="grid">
       <div class="card">
         <h3>.NET Development</h3>
         <p>High‑performance applications using modern .NET technologies and clean architecture.</p>
       </div>
       <div class="card">
-        <h3>Microsoft Azure </h3>
+        <h3>Microsoft Azure</h3>
         <p>Scalable cloud solutions, APIs, and infrastructure designed for reliability and growth.</p>
       </div>
       <div class="card">
         <h3>Microsoft 365</h3>
         <p>Automation, integrations, and productivity solutions built around the Microsoft ecosystem.</p>
       </div>
-
       <div class="card">
         <h3>Power Platform</h3>
         <p>Custom Power Apps, Power Automate flows, and business intelligence with Power BI.</p>
       </div>
     </section>
-    <footer> © <span id="year"></span> AshWorks LLC · Built with simplicity & performance in mind </footer>
+
+    <footer>
+      © <span id="year"></span> AshWorks LLC · Built with simplicity & performance in mind
+    </footer>
   </div>
-  <script> document.getElementById("year").textContent = new Date().getFullYear(); </script>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
