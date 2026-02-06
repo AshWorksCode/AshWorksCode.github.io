@@ -5,13 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AshWorks LLC</title>
+
   <style>
     :root {
       --bg: #0f172a;
       --card: #111827;
       --text: #e5e7eb;
       --muted: #94a3b8;
-      --accent: #715AAE; /* purple accent */
+      --accent: #715AAE;
     }
 
     * {
@@ -49,15 +50,14 @@
       }
     }
 
+    /* ✅ Tagline always larger than card text */
     .tagline {
       margin-top: 0;
       color: var(--accent);
-      font-size: 1.6rem;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
       font-weight: 500;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
-
-
 
     .grid {
       display: grid;
@@ -123,16 +123,19 @@
     <section class="grid">
       <div class="card">
         <h3>.NET Development</h3>
-        <p>High‑performance applications using modern .NET technologies and clean architecture.</p>
+        <p>High-performance applications using modern .NET technologies and clean architecture.</p>
       </div>
+
       <div class="card">
         <h3>Microsoft Azure</h3>
         <p>Scalable cloud solutions, APIs, and infrastructure designed for reliability and growth.</p>
       </div>
+
       <div class="card">
         <h3>Microsoft 365</h3>
         <p>Automation, integrations, and productivity solutions built around the Microsoft ecosystem.</p>
       </div>
+
       <div class="card">
         <h3>Power Platform</h3>
         <p>Custom Power Apps, Power Automate flows, and business intelligence with Power BI.</p>
