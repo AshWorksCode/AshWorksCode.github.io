@@ -107,6 +107,17 @@ body {
       font-size: 0.9rem;
     }
 
+    .footer-image {
+  text-align: center;
+  margin-top: 1rem; /* space above the image */
+}
+
+.footer-image img {
+  max-height: 25px; /* never taller than 25px */
+  width: auto;      /* maintain aspect ratio */
+}
+
+
     @media (max-width: 480px) {
       .container {
         padding: 2rem 1rem;
@@ -119,7 +130,7 @@ body {
   <div class="container">
     <header>
       <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo">
-      <p class="tagline">Your ideas – brilliantly executed.</p>
+      <p class="tagline">Your ideas – brilliantly executed!</p>
     </header>
 
     <section class="grid">
@@ -147,6 +158,12 @@ body {
     <footer>
       © <span id="year"></span> AshWorks LLC · Built with simplicity & performance in mind
     </footer>
+
+
+<div class="footer-image">
+  <img src="wm.png" alt="WM">
+</div>
+
   </div>
 
   <script>
