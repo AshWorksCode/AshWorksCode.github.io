@@ -13,6 +13,15 @@
       --text: #e5e7eb;
       --muted: #94a3b8;
       --accent: #715AAE;
+
+      /* Responsive header height */
+      --header-height: 10rem; /* desktop */
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --header-height: 7rem; /* mobile */
+      }
     }
 
     * {
@@ -39,7 +48,6 @@
       padding: 1.5rem 0;
       text-align: center;
 
-      /* Banner style */
       border-bottom: 2px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
@@ -65,14 +73,20 @@
       display: block;
     }
 
-    /* Container adjusted to leave space for fixed header */
+    /* Container with responsive top padding to accommodate fixed header */
     .container {
       max-width: 1100px;
-      padding: 12rem 1.5rem 3rem;
-      /* Top padding = header height + spacing */
+      padding: calc(var(--header-height)) 1.5rem 3rem; /* top padding = header height */
       margin: auto;
     }
 
+    @media (max-width: 480px) {
+      .container {
+        padding: calc(var(--header-height)) 1rem 2rem;
+      }
+    }
+
+    /* Grid layout for cards */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -85,6 +99,7 @@
       }
     }
 
+    /* Card styles */
     .card {
       background: rgba(17, 24, 39, 0.85);
       backdrop-filter: blur(6px);
@@ -112,6 +127,7 @@
       font-size: 0.95rem;
     }
 
+    /* Footer styles */
     footer {
       text-align: center;
       margin-top: 4rem;
@@ -128,25 +144,17 @@
       max-height: 25px;
       width: auto;
     }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 10rem 1rem 2rem;
-      }
-    }
   </style>
 </head>
 
 <body>
-  <header id="header">
-  <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo">
-  <p class="tagline">Your ideas – brilliantly executed!</p>
-</header>
+  <!-- Fixed Header -->
+  <header>
+    <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo">
+    <p class="tagline">Your ideas – brilliantly executed!</p>
+  </header>
 
-<!-- Spacer to push content below header -->
-<div style="height: calc(1.5rem + 100px + 1.8rem);"></div>
-
-
+  <!-- Page Content -->
   <div class="container">
     <section class="grid">
       <div class="card">
@@ -176,6 +184,7 @@
   </div>
 
   <script>
+    // Automatically set the current year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
