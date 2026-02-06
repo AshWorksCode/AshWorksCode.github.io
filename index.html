@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AshWorks LLC</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --bg: #0f172a;
@@ -26,8 +30,16 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.6;
       color: var(--text);
-      background: linear-gradient(180deg, #020617, var(--bg));
+      background: linear-gradient(-45deg, #020617, #0f172a, #111827, #020617);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
@@ -50,6 +62,11 @@
       font-size: clamp(1.2rem, 2.5vw, 1.5rem);
       color: var(--muted);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+ 
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     .container {
@@ -91,15 +108,25 @@
       padding: 1.8rem;
       border: 1px solid rgba(255, 255, 255, 0.06);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+      animation-delay: 0.5s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(113, 90, 174, 0.3);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
 
     .card h3 {
-      margin: 0 0 0.5rem;
+      margin: 0.5rem 0 0.5rem;
       color: var(--accent);
       font-size: 1.2rem;
     }
@@ -126,6 +153,22 @@
       max-height: 25px;
       width: auto;
     }
+
+    .footer-social {
+      margin-top: 0.5rem;
+    }
+
+    .footer-social a {
+      margin: 0 0.5rem;
+      color: var(--muted);
+      transition: color 0.3s;
+      font-size: 1.2rem;
+    }
+
+    .footer-social a:hover {
+      color: var(--accent);
+    }
+
   </style>
 </head>
 
@@ -134,29 +177,40 @@
     <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo">
     <p class="tagline">Your ideas – brilliantly executed</p>
   </header>
+
   <div class="container">
     <section class="grid">
       <div class="card">
+        <i class="fas fa-code"></i>
         <h3>.NET Development</h3>
         <p>High-performance applications using modern .NET technologies and clean architecture.</p>
       </div>
       <div class="card">
+        <i class="fas fa-cloud"></i>
         <h3>Microsoft Azure</h3>
         <p>Scalable cloud solutions, APIs, and infrastructure designed for reliability and growth.</p>
       </div>
       <div class="card">
+        <i class="fas fa-users-cog"></i>
         <h3>Microsoft 365</h3>
         <p>Automation, integrations, and productivity solutions built around the Microsoft ecosystem.</p>
       </div>
       <div class="card">
+        <i class="fas fa-bolt"></i>
         <h3>Power Platform</h3>
         <p>Custom Power Apps, Power Automate flows, and business intelligence with Power BI.</p>
       </div>
     </section>
+
     <footer>
       © <span id="year"></span> AshWorks LLC · Built with simplicity & performance in mind
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/ashrafhameed"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
     </footer>
   </div>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
