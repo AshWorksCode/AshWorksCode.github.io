@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AshWorks LLC</title>
   <style>
     :root {
@@ -10,39 +11,26 @@
       --card: #111827;
       --text: #e5e7eb;
       --muted: #94a3b8;
-      --accent: #9575BD; /* purple accent */
+      --accent: #9575BD;
+      /* changed from blue to purple */
     }
 
-    /* Box sizing */
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    /* Full height html & body, dark background */
-    html, body {
-      height: 100%;
+    body {
       margin: 0;
-      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: linear-gradient(180deg, #020617, var(--bg));
       color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.6;
-      padding-top: env(safe-area-inset-top);
-      padding-bottom: env(safe-area-inset-bottom);
     }
 
-    /* CSS variable fix for iOS 100vh */
-    :root {
-      --vh: 1vh;
-    }
-
-    /* Container fills viewport, spaces header/content/footer */
     .container {
-      min-height: calc(var(--vh, 1vh) * 100);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       max-width: 1100px;
       padding: 3rem 1.5rem;
-      margin: 0 auto;
+      margin: auto;
     }
 
     header {
@@ -52,17 +40,22 @@
 
     header img {
       max-width: 100%;
+      /* makes it shrink to container width */
       height: auto;
       margin-bottom: 0.3rem;
     }
 
+    /* Optional: give a smaller max-width for very small screens */
     @media (max-width: 480px) {
-      header img { max-width: 250px; }
-      .container { padding: 2rem 1rem; }
+      header img {
+        max-width: 250px;
+        /* logo won’t get too big on phones */
+      }
     }
 
     .tagline {
       margin-top: 0;
+      /* remove extra spacing if any */
       color: var(--muted);
       font-size: 1.1rem;
     }
@@ -73,8 +66,11 @@
       gap: 1.5rem;
     }
 
+    /* Center cards on smaller screens */
     @media (max-width: 768px) {
-      .grid { justify-items: center; }
+      .grid {
+        justify-items: center;
+      }
     }
 
     .card {
@@ -82,13 +78,14 @@
       backdrop-filter: blur(6px);
       border-radius: 18px;
       padding: 1.8rem;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
+      /* purple shadow on hover */
     }
 
     .card h3 {
@@ -110,30 +107,32 @@
       color: var(--muted);
       font-size: 0.9rem;
     }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+    }
   </style>
 </head>
-<body>
 
+<body>
   <div class="container">
-    <header>
-      <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo">
+    <header> <img src="ashworks_logo_no_bg.png" alt="AshWorks LLC Logo"> <!-- Replace with your actual logo path -->
       <p class="tagline">Your ideas — brilliantly engineered into reality.</p>
     </header>
-
     <section class="grid">
       <div class="card">
         <h3>.NET Development</h3>
         <p>High‑performance applications using modern .NET technologies and clean architecture.</p>
       </div>
-
+      <div class="card">
+        <h3>Microsoft Azure </h3>
+        <p>Scalable cloud solutions, APIs, and infrastructure designed for reliability and growth.</p>
+      </div>
       <div class="card">
         <h3>Microsoft 365</h3>
         <p>Automation, integrations, and productivity solutions built around the Microsoft ecosystem.</p>
-      </div>
-
-      <div class="card">
-        <h3>Microsoft Azure</h3>
-        <p>Scalable cloud solutions, APIs, and infrastructure designed for reliability and growth.</p>
       </div>
 
       <div class="card">
@@ -141,22 +140,9 @@
         <p>Custom Power Apps, Power Automate flows, and business intelligence with Power BI.</p>
       </div>
     </section>
-
-    <footer>
-      © <span id="year"></span> AshWorks LLC · Built with simplicity & performance in mind
-    </footer>
+    <footer> © <span id="year"></span> AshWorks LLC · Built with simplicity & performance in mind </footer>
   </div>
-
-  <script>
-    // Set current year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // iOS 100vh fix
-    function setVh() {
-      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-    }
-    window.addEventListener('resize', setVh);
-    setVh();
-  </script>
+  <script> document.getElementById("year").textContent = new Date().getFullYear(); </script>
 </body>
+
 </html>
